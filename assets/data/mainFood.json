@@ -1,0 +1,19 @@
+[{
+	"name": "Greek Salad",
+	"code": "m001",
+	"price": 18,
+	"image": "content/img/food5.jpg"
+},
+{
+	"name": "Caesar Salad",
+	"code": "m002",
+	"price": 21,
+	"image": "content/img/food6.jpg"
+},
+{
+	"name": "Salmon Salad",
+	"code": "m003",
+	"price": 24.5,
+	"image": "content/img/food7.jpg"
+}
+]

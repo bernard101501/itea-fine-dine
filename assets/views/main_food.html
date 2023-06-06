@@ -1,0 +1,64 @@
+<br>
+<div class="row">
+    <div class="col-md-5">
+        <b>Main</b>
+    </div>
+    <div class="col-md-7 text-right">
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#cart">Cart ({{countFood}})</button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Your Cart - Main</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <table class="table">
+                <tr>
+                    <th colspan="2">Item Selected</th>
+                    <th>Total</th>
+                </tr>
+                <tr ng-repeat="cartFood in main">
+                    <td>{{ cartFood.number }} .</td>
+                    <td>{{ cartFood.name }} x {{ cartFood.quantity }}</td>
+                    <td>{{ cartFood.total | currency:'RM' }}</td>
+                </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" ng-click="removeAll()" data-dissmiss="modal">Remove All</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<div class="row">
+    Choose your starters
+</div>
+<div class="row">
+    <div class="card text-center md-4" style="width: 18rem; margin-left: 50px; margin-top: 50px;" ng-repeat="main in mainFood">
+        <div class="card-body">
+            <img ng-src="{{main.image}}" alt="" class="img-fluid" style="height: 10rem;">
+            <div>{{main.name}}</div>
+            <div>{{main.price | currency:'RM' }}</div>
+            <br>
+          <button type="button" class="btn btn-primary" ng-click="addToCart(main)">Add To Cart</button>
+        </div>
+      </div>
+</div>
+<br>
+<div class="float-right" >
+    <div class="row">
+        <a href="#!/starter" class="btn btn-primary text-white" >Previous</a>
+        <a href="#!/checkout" class="btn btn-primary text-white" style="margin-left:10px;">Next</a>
+
+    </div>
+  </div>

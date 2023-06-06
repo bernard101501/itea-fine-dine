@@ -1,0 +1,61 @@
+<br>
+<div>
+    <b>Please check your details before confirmation:</b>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card w-100">
+            <div class="card-body">
+              <h5 class="card-title">Your Details:</h5>
+              <br>
+              <p class="card-text">Name: {{name}}</p>
+              <p class="card-text">Mobile: {{mobile}}</p>
+              <p class="card-text">Date: {{date | date:'dd/MM/yyyy'}}</p>
+              <p class="card-text">Time: {{time | date:'shortTime' }}</p>
+              <p class="card-text">Adult(Pax): {{adultPax}}</p>
+              <p class="card-text">Kids(Pax): {{kidPax}}</p>
+              <!-- <a href="#" class="btn btn-primary">Button</a> -->
+            </div>
+          </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card w-100">
+            <div class="card-body">
+              <h5 class="card-title">Your Order</h5>
+              <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+              <table class="table">
+                <tr>
+                    <th colspan="2">Starter</th>
+                    <th></th>
+                    <!-- <th></th> -->
+                </tr>
+                <tr ng-repeat="cartFood in starter">
+                    <td>{{ cartFood.number }} .</td>
+                    <td>{{ cartFood.name }} x {{ cartFood.quantity }}</td>
+                    <td>{{ cartFood.total | currency:'RM' }}</td>
+                    <!-- <td><button type="button" class="close" style="color: rgb(156, 20, 20);" ng-click="remove(cartFood)"><span aria-hidden="true">&times;</span></button></td> -->
+                </tr>
+                <tr>
+                    <th colspan="2">Main</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="cartFood in main">
+                    <td>{{ cartFood.number }} .</td>
+                    <td>{{ cartFood.name }} x {{ cartFood.quantity }}</td>
+                    <td>{{ cartFood.total | currency:'RM' }}</td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="2"><b>Total: </b></td>
+                    <td>{{total | currency:'RM'}}</td>
+                </tr>
+            </table>
+              <!-- <a href="#" class="btn btn-primary">Button</a> -->
+            </div>
+          </div>
+    </div>
+</div>
+<br>
+<div class="text-right">
+    <a href="#!/mainFood" class="btn btn-primary text-white" >Previous</a>
+</div>

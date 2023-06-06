@@ -1,0 +1,47 @@
+<style>
+input.ng-invalid.ng-touched {
+  border: 2px solid red !important;
+}
+
+
+</style>
+
+<div class="row" ng-controller="BookingController">
+    <div class="md-5">
+      <img ng-src="content/img/logo.png" class="img-fluid" alt="" style="width:500px;">
+    </div>
+    <form name="customerDetail" ng-submit="sendCustomer()" novalidate ng-controller="BookingController">
+  
+      <div class="md-7" style="text-align: center;">
+        <welcome-text></welcome-text>
+        <br>
+        <div class="row">
+          <div class="md-6">
+            <input type="text" ng-model="name" name="name" ng-required="true" style="margin-bottom:10px;" class="form-control" placeholder="Name">
+            <div ng-show="customerDetail.name.$touched && customerDetail.name.$invalid"><small style="color: red; display: block; text-align: center;">Enter a valid name</small></div>
+          
+            <input type="date" ng-model="date" name="date" ng-required="true" style="margin-bottom:10px;" class="form-control">
+            <div ng-show="customerDetail.date.$touched && customerDetail.date.$invalid"><small style="color: red; display: block; text-align: center;">Enter a valid date</small></div>
+          
+            <input type="number" ng-model="adultPax" name="adultPax" min="1" ng-required="true" style="margin-bottom:10px;" class="form-control" placeholder="Adult Pax">
+            <div ng-show="customerDetail.adultPax.$touched && customerDetail.adultPax.$invalid"><small style="color: red; display: block; text-align: center;">Enter a valid number</small></div>
+          </div>
+          <div class="md-6">
+            <input type="tel" ng-model="mobile" name="mobile" ng-required="true" style="margin-bottom:10px; margin-left: 10px;" ng-pattern="/^[0-9]{9,11}$/" class="form-control" placeholder="Mobile">
+            <div ng-show="customerDetail.mobile.$touched && customerDetail.mobile.$invalid"><small style="color: red; display: block; text-align: center;">Enter a valid mobile number</small></div>
+          
+            <input type="time" ng-model="time" name="time" ng-required="true" style="margin-bottom:10px; margin-left: 10px;" class="form-control">
+            <div ng-show="customerDetail.time.$touched && customerDetail.time.$invalid"><small style="color: red; display: block; text-align: center;">Enter a valid time</small></div>
+          
+            <input type="number" ng-model="kidPax" name="kidPax" min="1" ng-required="true" style="margin-bottom:10px; margin-left: 10px;" class="form-control" placeholder="Kid Pax">
+            <div ng-show="customerDetail.kidPax.$touched && customerDetail.kidPax.$invalid"><small style="color: red; display: block; text-align: center;">Enter a valid number</small></div>
+          </div>
+          
+        </div>
+      </div>
+  
+      <div class="float-right" >
+        <input type="submit" class="btn btn-primary text-white" value="Next" ng-disabled="customerDetail.$invalid">
+      </div>
+    </form>
+  </div>
